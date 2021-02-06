@@ -37,7 +37,6 @@ public class RPCClient
 
     public byte[] call(byte[] rpcrequest)
     {
-
         byte[] rpcreply;
 		
 		/* DONE:
@@ -55,7 +54,5 @@ public class RPCClient
         rpcreply = connection.receive().getData();
 
         return rpcreply;
-
     }
-
 }

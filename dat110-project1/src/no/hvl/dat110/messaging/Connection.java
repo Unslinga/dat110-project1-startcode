@@ -75,8 +75,6 @@ public class Connection
             e.printStackTrace();
         }
 
-
-
         return message;
     }
 
