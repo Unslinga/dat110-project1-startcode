@@ -3,29 +3,29 @@ package no.hvl.dat110.system.sensor;
 import no.hvl.dat110.rpc.RPCImpl;
 import no.hvl.dat110.rpc.RPCUtils;
 
-public class SensorImpl implements RPCImpl {
+public class SensorImpl implements RPCImpl
+{
+    static final int RANGE = 20;
 
-	static final int RANGE = 20;
+    public int read()
+    {
+        long seconds = System.currentTimeMillis();
 
-	public int read() {
+        double temp = RANGE * Math.sin(seconds / 1000);
 
-		long seconds = System.currentTimeMillis();
+        return (int) Math.ceil(temp);
+    }
 
-		double temp = RANGE * Math.sin(seconds / 1000);
+    public byte[] invoke(byte[] request)
+    {
+        RPCUtils.unmarshallVoid(request);
 
-		return (int) Math.ceil(temp);
-	}
-	
-	public byte[] invoke(byte[] request) {
-				
-		RPCUtils.unmarshallVoid(request); 
-		
-		int temp = read();
-		
-		byte rpcid = request[0];
-		
-		byte[] reply = RPCUtils.marshallInteger(rpcid,temp); 
-		
-		return reply;
-	}
+        int temp = read();
+
+        byte rpcid = request[0];
+
+        byte[] reply = RPCUtils.marshallInteger(rpcid, temp);
+
+        return reply;
+    }
 }
