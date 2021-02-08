@@ -1,11 +1,11 @@
 ## DAT110 - Project 1: Socket Programming and RPC middleware
 
-### Organisation
+### DAT110ProsjektGrupper2021 43
 
 Group members:
 
   Olav Pete - 488249
-  
+
   Aahed Diyab - 588408
 
 ### Overview
